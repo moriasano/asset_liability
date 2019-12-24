@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../App.css';
-import { Button } from 'react-bootstrap'
+import { Form, InputGroup, Button } from 'react-bootstrap'
 
 function InputForm() {
     const [type, setType] = useState(0);
@@ -8,31 +8,40 @@ function InputForm() {
     const [balance, setBalance] = useState("0.00");
 
     return (
-        <form>
-            {/* Type */}
-            <label>
-                Type:
-                <select value={type} onChange={e => setType(e.target.value)} >
-                    <option value="asset">Asset</option>
-                    <option value="liability">Liability</option>
-                </select>
-            </label>
+        <Form>
+            <Form.Group>
+                {/* Input Fields */}
+                <InputGroup>
+                    {/* Type */}
+                    <Form.Control
+                        value={type}
+                        as="select"
+                        onChange={e => setType(e.target.value)}
+                    >
+                        <option value="asset">Asset</option>
+                        <option value="liability">Liability</option>
+                    </Form.Control>
 
-            {/* Name */}
-            <label>
-                Name:
-                <input type="text" value={name} onChange={e => setName(e.target.value)} />
-            </label>
+                    {/* Name */}
+                    <Form.Control
+                        value={name}
+                        onChange={e => setName(e.target.value)}
+                    />
 
-            {/* Balance */}
-            <label>
-                Balance:
-                <input type="number" value={balance} onChange={e => setBalance(e.target.value)} step="0.01" />
-            </label>
+                    {/* Balance */}
+                    <Form.Control
+                        value={balance}
+                        type="number"
+                        step="0.01"
+                        onChange={e => setBalance(e.target.value)}
+                    /> 
+                </InputGroup>
 
-            {/* Submit Button */}
-            <Button variant="primary">Submit</Button>
-        </form>
+                {/* Add Button */}
+                <Button variant="primary" type="submit">Add</Button>
+
+            </Form.Group>
+        </Form>
     )
 }
 
