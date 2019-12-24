@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../App.css';
+import { Button } from 'react-bootstrap'
 
 function InputForm() {
     const [type, setType] = useState(0);
@@ -28,6 +29,9 @@ function InputForm() {
                 Balance:
                 <input type="number" value={balance} onChange={e => setBalance(e.target.value)} step="0.01" />
             </label>
+
+            {/* Submit Button */}
+            <Button variant="primary">Submit</Button>
         </form>
     )
 }
