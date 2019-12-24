@@ -1,21 +1,14 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import InputForm from './components/InputForm'
 
 function App() {
+  
   return (
     <div className="App">
-
-      <form>
-        <label>
-          Name:
-          <input type="text" name="name" />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
-       
+      <InputForm />
     </div>
-  );
+  )
 }
 
 export default App;
