@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import $ from 'jquery'
 import '../App.css';
-import { Table } from 'react-bootstrap'
+import { Table, Button } from 'react-bootstrap'
 
 function TableView() {
     
@@ -9,11 +10,13 @@ function TableView() {
         
         var dummy = [
             {
+                'id': 0,
                 'type': "asset",
                 'name': "dummy asset",
                 'balance': 10
             },
             {
+                'id': 1,
                 'type': "liability",
                 'name': "dummy liability",
                 'balance': -5
@@ -32,10 +35,16 @@ function TableView() {
                     <td>{type}</td>
                     <td>{name}</td>
                     <td>{balance}</td>
-                    <td>DELETE</td>
+                    <td><Button variant="danger" type="submit" onClick={(e) => deleteRow(id)}>Delete</Button></td>
                 </tr>
             )
         })
+    }
+
+    const deleteRow = (id) => {
+        alert(`Deleting row with ID: ${id}`)
+
+        // TODO: sql query to delete from table
     }
 
     return (
